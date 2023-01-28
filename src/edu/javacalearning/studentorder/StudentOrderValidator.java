@@ -1,14 +1,22 @@
+package edu.javacalearning.studentorder;
+
+import edu.javacalearning.studentorder.domain.*;
+import edu.javacalearning.studentorder.mail.MailSender;
+import edu.javacalearning.studentorder.validator.ChildrenValidator;
+import edu.javacalearning.studentorder.validator.CityRegisterValidator;
+import edu.javacalearning.studentorder.validator.StudentValidator;
+import edu.javacalearning.studentorder.validator.WeddingValidator;
+
 public class StudentOrderValidator {
 
-    static StudentOrder readStudentOrder(){
+    static StudentOrder readStudentOrder() {
         return new StudentOrder();
     }
 
     static AnswerCityRegister checkCityRegister(StudentOrder so) {
         var crv = new CityRegisterValidator();
         crv.hostName = "Host1";
-        crv.login = "Login1";
-        crv.password ="Password1";
+        crv.password = "Password1";
         return crv.checkCityRegister(so);
     }
 
@@ -27,16 +35,16 @@ public class StudentOrderValidator {
         return csv.checkStudent(so);
     }
 
-    static void sendMail(StudentOrder so){
+    static void sendMail(StudentOrder so) {
         new MailSender().sendMail(so);
     }
 
-    static void checkAll(){
+    static void checkAll() {
         StudentOrder so = readStudentOrder();
-        AnswerCityRegister answerCityRegister = checkCityRegister(so);
-        AnswerChildren answerChildren = checkChildren(so);
-        AnswerStudent answerStudent = checkStudent(so);
-        AnswerWedding answerWedding = checkWedding(so);
+        var answerCityRegister = checkCityRegister(so);
+        var answerChildren = checkChildren(so);
+        var answerStudent = checkStudent(so);
+        var answerWedding = checkWedding(so);
         sendMail(so);
     }
 
