@@ -1,43 +1,42 @@
 public class StudentOrderValidator {
 
-    static void sendMail(StudentOrder so){
-        System.out.println("Mail sending");
-    }
-
     static StudentOrder readStudentOrder(){
         return new StudentOrder();
     }
 
     static AnswerCityRegister checkCityRegister(StudentOrder so) {
-        System.out.println("City register is running");
-        var answer = new AnswerCityRegister();
-        return answer;
+        var crv = new CityRegisterValidator();
+        crv.hostName = "Host1";
+        crv.login = "Login1";
+        crv.password ="Password1";
+        return crv.checkCityRegister(so);
     }
 
-    static AnswerWedding checkCityWedding(StudentOrder so) {
-        System.out.println("Wedding check is running");
-        var answer = new AnswerWedding();
-        return answer;
+    static AnswerWedding checkWedding(StudentOrder so) {
+        var cwv = new WeddingValidator();
+        return cwv.checkWedding(so);
     }
 
     static AnswerChildren checkChildren(StudentOrder so) {
-        System.out.println("Children register is running");
-        var answer = new AnswerChildren();
-        return answer;
+        var ccv = new ChildrenValidator();
+        return ccv.checkChildren(so);
     }
 
     static AnswerStudent checkStudent(StudentOrder so) {
-        System.out.println("Student check is running");
-        var answer = new AnswerStudent();
-        return answer;
+        var csv = new StudentValidator();
+        return csv.checkStudent(so);
+    }
+
+    static void sendMail(StudentOrder so){
+        new MailSender().sendMail(so);
     }
 
     static void checkAll(){
         StudentOrder so = readStudentOrder();
-        AnswerCityRegister answerCityRegister =  checkCityRegister(so);
+        AnswerCityRegister answerCityRegister = checkCityRegister(so);
         AnswerChildren answerChildren = checkChildren(so);
         AnswerStudent answerStudent = checkStudent(so);
-        AnswerWedding answerWedding = checkCityWedding(so);
+        AnswerWedding answerWedding = checkWedding(so);
         sendMail(so);
     }
 
