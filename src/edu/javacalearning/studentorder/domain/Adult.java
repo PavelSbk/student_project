@@ -4,17 +4,17 @@ import java.time.LocalDate;
 
 public class Adult  extends Person {
 
-    private String passportSeria;
+    private String passportSeries;
     private String passportNumber;
     private LocalDate issueDate;
     private String issueDepartment;
 
-    public String getPassportSeria() {
-        return passportSeria;
+    public String getPassportSeries() {
+        return passportSeries;
     }
 
-    public void setPassportSeria(String passportSeria) {
-        this.passportSeria = passportSeria;
+    public void setPassportSeries(String passportSeria) {
+        this.passportSeries = passportSeria;
     }
 
     public String getPassportNumber() {
