@@ -1,4 +1,4 @@
-package edu.javacalearning.studentorder;
+package edu.javacalearning.studentorder.validator;
 
 import edu.javacalearning.studentorder.domain.*;
 import edu.javacalearning.studentorder.mail.MailSender;
