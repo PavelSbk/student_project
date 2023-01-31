@@ -5,12 +5,13 @@ import edu.javacalearning.studentorder.domain.StudentOrder;
 
 public class SaveStudentOrder {
 
-    public static void main(String[] args) {
-        var studentOrder = new StudentOrder();
-        Adult husband = new Adult();
+    public static StudentOrder buildStudentOrder(long id) {
+        var so = new StudentOrder();
+        return null;
     }
 
-    static StudentOrder buildStudentOrder() {
-        return null;
+    public static void main(String[] args) {
+        var studentOrder = new StudentOrder();
+
     }
 }

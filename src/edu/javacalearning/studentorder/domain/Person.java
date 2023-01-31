@@ -18,8 +18,11 @@ public abstract class Person {
     private String university;
     private String studentId;
 
-    public Person() {
-        System.out.println("Person is created!");
+    public Person(String surname, String name, String patronymic, LocalDate dateOfBirth) {
+        this.surname = surname;
+        this.name = name;
+        this.patronymic = patronymic;
+        this.dateOfBirth = dateOfBirth;
     }
 
     public String getSurname() {
