@@ -11,6 +11,10 @@ public class Person {
     private String university;
     private String studentId;
 
+    public Person() {
+        System.out.println("Person is created!");
+    }
+
     public String getSurname() {
         return surname;
     }

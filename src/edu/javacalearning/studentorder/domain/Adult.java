@@ -2,7 +2,7 @@ package edu.javacalearning.studentorder.domain;
 
 import java.time.LocalDate;
 
-public class Adult  extends Person {
+public class Adult extends Person {
 
     private String passportSeries;
     private String passportNumber;

@@ -2,44 +2,51 @@ package edu.javacalearning.studentorder.validator;
 
 import edu.javacalearning.studentorder.domain.*;
 import edu.javacalearning.studentorder.mail.MailSender;
-import edu.javacalearning.studentorder.validator.ChildrenValidator;
-import edu.javacalearning.studentorder.validator.CityRegisterValidator;
-import edu.javacalearning.studentorder.validator.StudentValidator;
-import edu.javacalearning.studentorder.validator.WeddingValidator;
 
 public class StudentOrderValidator {
 
-    static StudentOrder readStudentOrder() {
+    private CityRegisterValidator cityRegisterValidator;
+    private WeddingValidator weddingValidator;
+    private ChildrenValidator childrenValidator;
+    private StudentValidator studentValidator;
+    private MailSender mailSender;
+
+    public StudentOrderValidator() {
+        cityRegisterValidator = new CityRegisterValidator();
+        weddingValidator = new WeddingValidator();
+        childrenValidator = new ChildrenValidator();
+        studentValidator = new StudentValidator();
+        mailSender = new MailSender();
+    }
+
+    public StudentOrder readStudentOrder() {
         return new StudentOrder();
     }
 
-    static AnswerCityRegister checkCityRegister(StudentOrder so) {
-        var crv = new CityRegisterValidator();
-        crv.hostName = "Host1";
-        crv.password = "Password1";
-        return crv.checkCityRegister(so);
+    public AnswerCityRegister checkCityRegister(StudentOrder so) {
+        var rst = new StudentOrderValidator();
+        rst.cityRegisterValidator.hostName = "Host1";
+        rst.cityRegisterValidator.password = "Password1";
+        return rst.cityRegisterValidator.checkCityRegister(so);
     }
 
-    static AnswerWedding checkWedding(StudentOrder so) {
-        var cwv = new WeddingValidator();
-        return cwv.checkWedding(so);
+    public AnswerWedding checkWedding(StudentOrder so) {
+        return weddingValidator.checkWedding(so);
     }
 
-    static AnswerChildren checkChildren(StudentOrder so) {
-        var ccv = new ChildrenValidator();
-        return ccv.checkChildren(so);
+    public AnswerChildren checkChildren(StudentOrder so) {
+        return childrenValidator.checkChildren(so);
     }
 
-    static AnswerStudent checkStudent(StudentOrder so) {
-        var csv = new StudentValidator();
-        return csv.checkStudent(so);
+    public AnswerStudent checkStudent(StudentOrder so) {
+        return studentValidator.checkStudent(so);
     }
 
-    static void sendMail(StudentOrder so) {
-        new MailSender().sendMail(so);
+    public void sendMail(StudentOrder so) {
+        mailSender.sendMail(so);
     }
 
-    static void checkAll() {
+    public void checkAll() {
         StudentOrder so = readStudentOrder();
         var answerCityRegister = checkCityRegister(so);
         var answerChildren = checkChildren(so);
@@ -49,6 +56,7 @@ public class StudentOrderValidator {
     }
 
     public static void main(String[] args) {
-        checkAll();
+        var studentOrderValidator = new StudentOrderValidator();
+        studentOrderValidator.checkAll();
     }
 }
