@@ -2,7 +2,14 @@ package edu.javacalearning.studentorder.domain;
 
 import java.time.LocalDate;
 
-public class Person {
+/**
+ * Основная задача класса Person - объединить в себе общие для наследников (Adult и Child) поля
+ * с целью расширения их функционала,
+ * а не создание экземпляров этого класса.
+ * Класс Person рационально определить как abstract (нет возможности явно создать объект)
+ */
+
+public abstract class Person {
 
     private String surname;
     private String name;
