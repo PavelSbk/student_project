@@ -1,5 +1,6 @@
 package edu.javacalearning.studentorder.validator;
 
+import edu.javacalearning.studentorder.SaveStudentOrder;
 import edu.javacalearning.studentorder.domain.*;
 import edu.javacalearning.studentorder.mail.MailSender;
 
@@ -19,8 +20,12 @@ public class StudentOrderValidator {
         mailSender = new MailSender();
     }
 
-    public StudentOrder readStudentOrder() {
-        return new StudentOrder();
+    public StudentOrder[] readStudentOrders() {
+        StudentOrder[] soArray = new StudentOrder[3];
+        for (int i = 0; i < soArray.length; i++) {
+            soArray[i] = SaveStudentOrder.buildStudentOrder(i);
+        }
+        return soArray;
     }
 
     public AnswerCityRegister checkCityRegister(StudentOrder so) {
@@ -47,7 +52,14 @@ public class StudentOrderValidator {
     }
 
     public void checkAll() {
-        StudentOrder so = readStudentOrder();
+        StudentOrder[] soArray = readStudentOrders();
+        for (int i = 0; i < soArray.length; i++) {
+            System.out.println("=====================================");
+            checkOneOrder(soArray[i]);
+        }
+    }
+
+    public void checkOneOrder(StudentOrder so) {
         var answerCityRegister = checkCityRegister(so);
         var answerChildren = checkChildren(so);
         var answerStudent = checkStudent(so);

@@ -7,7 +7,12 @@ public class SaveStudentOrder {
 
     public static StudentOrder buildStudentOrder(long id) {
         var so = new StudentOrder();
-        return null;
+        so.setStudentOrderId(id);
+        return so;
+    }
+
+    static void printStudentOrder(StudentOrder so) {
+
     }
 
     public static void main(String[] args) {
