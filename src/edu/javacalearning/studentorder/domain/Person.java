@@ -18,6 +18,9 @@ public abstract class Person {
     private String university;
     private String studentId;
 
+    public Person() {
+    }
+
     public Person(String surname, String name, String patronymic, LocalDate dateOfBirth) {
         this.surname = surname;
         this.name = name;

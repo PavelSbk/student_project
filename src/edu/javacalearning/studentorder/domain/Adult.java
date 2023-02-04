@@ -9,10 +9,10 @@ public class Adult extends Person {
     private LocalDate issueDate;
     private String issueDepartment;
 
-    public Adult(String surname,
-                 String name,
-                 String patronymic,
-                 LocalDate dateOfBirth) {
+    public Adult() {
+    }
+
+    public Adult(String surname, String name, String patronymic, LocalDate dateOfBirth) {
         super(surname, name, patronymic, dateOfBirth);
     }
 
@@ -20,8 +20,8 @@ public class Adult extends Person {
         return passportSeries;
     }
 
-    public void setPassportSeries(String passportSeria) {
-        this.passportSeries = passportSeria;
+    public void setPassportSeries(String passportSeries) {
+        this.passportSeries = passportSeries;
     }
 
     public String getPassportNumber() {
