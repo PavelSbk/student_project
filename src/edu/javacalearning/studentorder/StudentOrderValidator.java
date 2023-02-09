@@ -1,8 +1,11 @@
-package edu.javacalearning.studentorder.validator;
+package edu.javacalearning.studentorder;
 
-import edu.javacalearning.studentorder.SaveStudentOrder;
 import edu.javacalearning.studentorder.domain.*;
 import edu.javacalearning.studentorder.mail.MailSender;
+import edu.javacalearning.studentorder.validator.ChildrenValidator;
+import edu.javacalearning.studentorder.validator.CityRegisterValidator;
+import edu.javacalearning.studentorder.validator.StudentValidator;
+import edu.javacalearning.studentorder.validator.WeddingValidator;
 
 public class StudentOrderValidator {
 
