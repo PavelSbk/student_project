@@ -7,12 +7,21 @@ public class Child extends Person {
     private String certificateNumber;
     private LocalDate issueDate;
     private String issueDepartment;
+    private Address address;
 
     public Child() {
     }
 
     public Child(String surname, String name, String patronymic, LocalDate dateOfBirth) {
         super(surname, name, patronymic, dateOfBirth);
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
     }
 
     public String getCertificateNumber() {

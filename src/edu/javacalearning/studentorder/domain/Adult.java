@@ -8,12 +8,22 @@ public class Adult extends Person {
     private String passportNumber;
     private LocalDate issueDate;
     private String issueDepartment;
+    private String studentId;
+    private Address address;
 
     public Adult() {
     }
 
     public Adult(String surname, String name, String patronymic, LocalDate dateOfBirth) {
         super(surname, name, patronymic, dateOfBirth);
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
     }
 
     public String getPassportSeries() {
