@@ -2,6 +2,7 @@ package edu.javacalearning.studentorder.validator;
 
 import edu.javacalearning.studentorder.domain.AnswerCityRegister;
 import edu.javacalearning.studentorder.domain.StudentOrder;
+import edu.javacalearning.studentorder.exception.CityRegisterException;
 
 public class CityRegisterValidator {
 
@@ -9,6 +10,7 @@ public class CityRegisterValidator {
     protected int port;
     private String login;
     public String password;
+
     private CityRegisterChecker personChecker;
 
     public CityRegisterValidator() {
@@ -16,9 +18,13 @@ public class CityRegisterValidator {
     }
 
     public AnswerCityRegister checkCityRegister(StudentOrder so) {
-        personChecker.checkPerson(so.getHusband());
-        personChecker.checkPerson(so.getWife());
-        personChecker.checkPerson(so.getChild());
+        try {
+            var hAnswer = personChecker.checkPerson(so.getHusband());
+            var wAnswer = personChecker.checkPerson(so.getWife());
+            var cAnswer = personChecker.checkPerson(so.getChild());
+        } catch (CityRegisterException ex) {
+            ex.printStackTrace();
+        }
         return new AnswerCityRegister();
     }
 }
