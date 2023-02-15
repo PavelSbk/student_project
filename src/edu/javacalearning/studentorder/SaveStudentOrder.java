@@ -17,7 +17,6 @@ public class SaveStudentOrder {
         so.setMarriageOffice("Отдел ЗАГС");
 
         Address address = new Address("195000", "Zanevskiy ave", "12", "142");
-
         // Муж
         Adult husband = new Adult("Петров",
                 "Виктор",
